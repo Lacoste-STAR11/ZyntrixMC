@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>ZyntrixMC • Forums</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:Arial}
+body{background:#6f00ff}
+
+/* HEADER */
+.header{
+  max-width:1200px;margin:20px auto;padding:15px 30px;
+  display:flex;gap:20px;align-items:center
+}
+.header a{font-weight:bold;text-decoration:none;color:#111}
+.header-buttons{margin-left:auto;display:flex;gap:10px}
+.header-btn{background:#7e22ce;color:white;padding:8px 16px;border-radius:12px;font-weight:bold;cursor:pointer}
+.header-btn.signup{background:#facc15;color:black}
+.store{background:linear-gradient(90deg,#facc15,#fbbf24);padding:10px 20px;border-radius:14px;font-weight:bold}
+
+/* MAIN */
+.container{
+  max-width:1200px;margin:60px auto;background:white;
+  border-radius:20px;padding:40px;
+  box-shadow:0 20px 50px rgba(0,0,0,.25)
+}
+h1{color:#7e22ce;margin-bottom:20px}
+
+/* FORUM LIST */
+.forum-box{
+  background:#f3f4f6;
+  padding:22px;
+  border-radius:16px;
+  margin-bottom:15px;
+  font-weight:bold;
+  cursor:pointer;
+}
+.forum-box:hover{background:#e5e7eb}
+
+/* FORUM VIEW */
+.forum-view{display:none}
+.back{
+  margin-bottom:20px;
+  color:#7e22ce;
+  font-weight:bold;
+  cursor:pointer;
+}
+.post{
+  background:#f9fafb;
+  padding:16px;
+  border-radius:14px;
+  margin-bottom:12px;
+}
+
+/* POST BOX */
+textarea{
+  width:100%;
+  padding:10px;
+  border-radius:10px;
+  margin:10px 0;
+  border:1px solid #ccc;
+  resize:none;
+}
+
+/* FOOTER */
+.footer{
+  background:#111;color:#ccc;
+  padding:50px 20px 30px;
+  margin-top:80px;
+  text-align:center
+}
+.watermark{margin-top:15px;font-size:13px;color:#777}
+
+/* MODAL */
+.modal{
+  display:none;position:fixed;inset:0;
+  background:rgba(0,0,0,.6);z-index:1000
+}
+.modal-content{
+  background:white;margin:10% auto;
+  padding:30px;border-radius:20px;
+  max-width:400px
+}
+.modal h2{color:#7e22ce;text-align:center}
+.modal input{
+  width:100%;padding:10px;
+  margin:6px 0;border-radius:10px;border:1px solid #ccc
+}
+.modal button{
+  width:100%;padding:12px;
+  border:none;border-radius:12px;
+  background:linear-gradient(90deg,#facc15,#fbbf24);
+  font-weight:bold;cursor:pointer
+}
+.switch{text-align:center;margin-top:10px;color:#7e22ce;cursor:pointer}
+.message{text-align:center;color:red;font-weight:bold}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<div class="header">
+  <a href="index.html">Home</a>
+  <a href="forum.html">Forums</a>
+  <a href="rules.html">Rules</a>
+  <a href="bantable.html">Punishments</a>
+  <a href="staff.html">Staff</a>
+  <div class="header-buttons">
+   <a class="header-btn" onclick="openModal('loginModal')">Log In</a>
+   <a class="header-btn signup" onclick="openModal('signupModal')">Sign Up</a>
+   <a class="store" href="https://zyntrixmc.tebex.io" target="_blank">🛒 STORE</a>
+  </div>
+</div>
+
+<!-- FORUM LIST -->
+<div class="container" id="forumList">
+  <h1>Forums</h1>
+  <div class="forum-box" onclick="openForum('general')">💬 General Discussion</div>
+  <div class="forum-box" onclick="openForum('skypvp')">🎮 SkyPvP</div>
+  <div class="forum-box" onclick="openForum('oppvp')">⚔️ OP PvP</div>
+  <div class="forum-box" onclick="openForum('citybuild')">🏙️ CityBuild</div>
+  <div class="forum-box" onclick="openForum('lifesteal')">❤️ Lifesteal</div>
+  <div class="forum-box" onclick="openForum('bedwars')">🛏️ BedWars</div>
+</div>
+
+<!-- FORUM SECTIONS -->
+<!-- Example: General -->
+<div class="container forum-view" id="general">
+  <div class="back" onclick="goBack()">← Back</div>
+  <h1>💬 General Discussion</h1>
+  <div class="post">Welcome to General Discussion.</div>
+  <textarea id="general-input" placeholder="Write a message..."></textarea>
+  <button onclick="addPost('general')">Send</button>
+</div>
+
+<!-- SkyPvP -->
+<div class="container forum-view" id="skypvp">
+  <div class="back" onclick="goBack()">← Back</div>
+  <h1>🎮 SkyPvP</h1>
+  <div class="post">Talk about SkyPvP here.</div>
+  <textarea id="skypvp-input" placeholder="Write a message..."></textarea>
+  <button onclick="addPost('skypvp')">Send</button>
+</div>
+
+<!-- OP PvP -->
+<div class="container forum-view" id="oppvp">
+  <div class="back" onclick="goBack()">← Back</div>
+  <h1>⚔️ OP PvP</h1>
+  <div class="post">OP PvP discussions.</div>
+  <textarea id="oppvp-input" placeholder="Write a message..."></textarea>
+  <button onclick="addPost('oppvp')">Send</button>
+</div>
+
+<!-- CityBuild -->
+<div class="container forum-view" id="citybuild">
+  <div class="back" onclick="goBack()">← Back</div>
+  <h1>🏙️ CityBuild</h1>
+  <div class="post">CityBuild ideas & builds.</div>
+  <textarea id="citybuild-input" placeholder="Write a message..."></textarea>
+  <button onclick="addPost('citybuild')">Send</button>
+</div>
+
+<!-- Lifesteal -->
+<div class="container forum-view" id="lifesteal">
+  <div class="back" onclick="goBack()">← Back</div>
+  <h1>❤️ Lifesteal</h1>
+  <div class="post">Lifesteal chat here.</div>
+  <textarea id="lifesteal-input" placeholder="Write a message..."></textarea>
+  <button onclick="addPost('lifesteal')">Send</button>
+</div>
+
+<!-- BedWars -->
+<div class="container forum-view" id="bedwars">
+  <div class="back" onclick="goBack()">← Back</div>
+  <h1>🛏️ BedWars</h1>
+  <div class="post">BedWars teams & chat.</div>
+  <textarea id="bedwars-input" placeholder="Write a message..."></textarea>
+  <button onclick="addPost('bedwars')">Send</button>
+</div>
+
+<!-- FOOTER -->
+<footer class="footer">
+  Join ZyntrixMC community
+  <div class="watermark">
+    © 2025 ZyntrixMC — Designed & Developed by <b>TheDarkSky</b>
+  </div>
+</footer>
+
+<!-- LOGIN MODAL -->
+<div id="loginModal" class="modal">
+  <div class="modal-content">
+    <h2>Log In</h2>
+    <p>Log in using your Minecraft username and password.</p>
+    <div class="message" id="login-msg"></div>
+    <label>Minecraft Username</label>
+    <input id="login-user" type="text">
+    <label>Password</label>
+    <input id="login-pass" type="password">
+    <button onclick="login()">Log In</button>
+    <div class="switch" onclick="switchModal('signupModal')">Create an account</div>
+  </div>
+</div>
+
+<!-- SIGNUP MODAL -->
+<div id="signupModal" class="modal">
+  <div class="modal-content">
+    <h2>Sign Up</h2>
+    <p>Create an account to join the ZyntrixMC Network.</p>
+    <div class="message" id="signup-msg"></div>
+    <label>Minecraft Username</label>
+    <input id="signup-user" type="text">
+    <label>Email</label>
+    <input id="signup-email" type="email">
+    <label>Password</label>
+    <input id="signup-pass" type="password">
+    <label>Confirm Password</label>
+    <input id="signup-pass2" type="password">
+    <button onclick="signup()">Sign Up</button>
+    <div class="switch" onclick="switchModal('loginModal')">Already have an account?</div>
+  </div>
+</div>
+
+<script>
+function $(id){return document.getElementById(id)}
+
+/* FORUM NAV */
+function openForum(id){
+  if(!localStorage.getItem("loggedIn")){
+    alert("Please log in first to see the forums!");
+    return;
+  }
+  $("forumList").style.display="none";
+  document.querySelectorAll(".forum-view").forEach(f=>f.style.display="none");
+  $(id).style.display="block";
+}
+function goBack(){
+  document.querySelectorAll(".forum-view").forEach(f=>f.style.display="none");
+  $("forumList").style.display="block";
+}
+
+/* MODALS */
+function openModal(id){ $(id).style.display="block" }
+function switchModal(id){
+  document.querySelectorAll(".modal").forEach(m=>m.style.display="none")
+  openModal(id)
+}
+window.onclick=e=>{
+  document.querySelectorAll(".modal").forEach(m=>{
+    if(e.target===m) m.style.display="none"
+  })
+}
+
+/* AUTH */
+function signup(){
+  let users = JSON.parse(localStorage.getItem("users")||"{}")
+  let u = $("signup-user").value.trim()
+  let e = $("signup-email").value.trim()
+  let p = $("signup-pass").value
+  let p2 = $("signup-pass2").value
+
+  if(!u||!e||!p||!p2){ $("signup-msg").textContent="Fill all fields"; return; }
+  if(p!==p2){ $("signup-msg").textContent="Passwords don’t match"; return; }
+  if(users[u]){ $("signup-msg").textContent="Username already exists"; return; }
+
+  users[u]={password:p,email:e}
+  localStorage.setItem("users",JSON.stringify(users))
+  $("signup-msg").style.color="green"
+  $("signup-msg").textContent="Account created! You can now log in."
+  setTimeout(()=>switchModal("loginModal"),1000)
+}
+
+function login(){
+  let users = JSON.parse(localStorage.getItem("users")||"{}")
+  let u = $("login-user").value.trim()
+  let p = $("login-pass").value
+
+  if(!users[u]){ $("login-msg").textContent="Account not found"; return; }
+  if(users[u].password!==p){ $("login-msg").textContent="Wrong password"; return; }
+
+  localStorage.setItem("loggedIn",u)
+  $("login-msg").style.color="green"
+  $("login-msg").textContent="Logged in as "+u
+}
+
+/* POSTS */
+function addPost(forum){
+  let username = localStorage.getItem("loggedIn")
+  if(!username){ alert("You must log in to post!"); return; }
+
+  let input = $(forum+"-input")
+  let message = input.value.trim()
+  if(!message) return;
+
+  let postDiv = document.createElement("div")
+  postDiv.className = "post"
+  postDiv.innerHTML = "<b>"+username+":</b> "+message
+
+  $(forum).appendChild(postDiv)
+  input.value = ""
+
+  // Save posts in localStorage
+  let forumPosts = JSON.parse(localStorage.getItem("forumPosts")||"{}")
+  if(!forumPosts[forum]) forumPosts[forum] = []
+  forumPosts[forum].push({user:username,text:message})
+  localStorage.setItem("forumPosts",JSON.stringify(forumPosts))
+}
+
+/* Load posts on page load */
+window.onload = ()=>{
+  let forumPosts = JSON.parse(localStorage.getItem("forumPosts")||"{}")
+  for(let forum in forumPosts){
+    forumPosts[forum].forEach(p=>{
+      let postDiv = document.createElement("div")
+      postDiv.className = "post"
+      postDiv.innerHTML = "<b>"+p.user+":</b> "+p.text
+      $(forum).appendChild(postDiv)
+    })
+  }
+}
+</script>
+
+</body>
+</html>

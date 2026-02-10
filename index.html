@@ -1,0 +1,534 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>ZyntrixMC</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+*{box-sizing:border-box;font-family:Arial,Helvetica,sans-serif;margin:0;padding:0}
+body{background:#6f00ff}
+
+/* HEADER */
+.header{
+  max-width:1200px;
+  margin:20px auto;
+  padding:15px 30px;
+  display:flex;
+  gap:20px;
+  align-items:center;
+}
+.header a{font-weight:bold;text-decoration:none;color:#111}
+.store{
+  background:linear-gradient(90deg,#facc15,#fbbf24);
+  padding:10px 20px;
+  border-radius:14px;
+  text-decoration:none;
+  color:black;
+}
+.header-buttons{
+  margin-left:auto;
+  display:flex;
+  gap:10px;
+  align-items:center;
+}
+.header-btn {
+  background: #7e22ce; 
+  color: white;
+  padding: 8px 16px;
+  border-radius: 12px;
+  text-decoration:none;
+  font-weight: bold;
+  cursor:pointer;
+  transition:0.2s;
+}
+.header-btn:hover{
+  background:#a855f7;
+}
+.header-btn.signup{
+  background:#facc15;
+  color:black;
+}
+.header-btn.signup:hover{
+  background:#fbbf24;
+}
+
+/* HERO */
+.hero{
+  max-width:1200px;
+  margin:40px auto;
+  background:linear-gradient(135deg,#6a11cb,#2575fc);
+  color:white;
+  border-radius:20px;
+  padding:40px;
+  display:flex;
+  gap:40px;
+  align-items:center;
+  flex-wrap:wrap;
+}
+.hero img{max-height:260px}
+.hero h1{margin:15px 0 30px}
+.btn{
+  background: linear-gradient(90deg,#facc15,#fbbf24);
+  padding:20px 40px;
+  border-radius:18px;
+  font-size:22px;
+  font-weight:bold;
+  display:inline-block;
+  cursor:pointer;
+  text-decoration:none;
+  color:black;
+  text-align:center;
+  margin-bottom:20px;
+}
+.info-bar{
+  margin-top:20px;
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+  align-items:center;
+}
+.info {
+  background:#ffffff33;
+  padding:14px 22px;
+  border-radius:14px;
+  text-decoration:none;
+  color:#111;
+  font-weight:bold;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+.btn-ip {
+  background: linear-gradient(90deg,#facc15,#fbbf24);
+  color:black;
+  padding:14px 22px;
+  border-radius:14px;
+  font-weight:bold;
+  text-decoration:none;
+  font-size:16px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  cursor:pointer;
+}
+.btn-ip:hover {
+  background: linear-gradient(90deg,#fbbf24,#facc15);
+}
+
+/* JOIN */
+.join-section{
+  max-width:1200px;
+  margin:80px auto;
+  display:flex;
+  justify-content:center;
+}
+.join-card{
+  background:white;
+  border-radius:20px;
+  padding:40px;
+  max-width:700px;
+  width:100%;
+  box-shadow:0 15px 40px rgba(0,0,0,.15);
+}
+.join-card h2{font-size:26px}
+.join-card h3{color:#a855f7;margin-bottom:20px}
+.join-card ol{padding-left:20px}
+.join-card li{margin-bottom:14px}
+.ip{background:#eee;padding:6px 10px;border-radius:8px;font-weight:bold}
+code{background:#111;color:white;padding:6px 10px;border-radius:8px}
+
+/* DISCORD BAR */
+.discord-announce{
+  max-width:1200px;
+  margin:40px auto 30px;
+  background:#b983ff;
+  color:white;
+  padding:18px 28px;
+  border-radius:16px;
+  font-weight:600;
+  font-size:18px;
+  display:block;
+  text-align:center;
+  text-decoration:none;
+}
+
+/* FAQ */
+.faq-box{
+  max-width:1200px;
+  margin:0 auto 80px;
+  background:white;
+  border-radius:20px;
+  padding:30px;
+  box-shadow:0 15px 40px rgba(0,0,0,.15);
+}
+.faq-box h2{font-size:28px;margin-bottom:20px}
+.faq-item{border-bottom:1px solid #e5e7eb}
+.faq-question{
+  width:100%;
+  background:none;
+  border:none;
+  padding:18px 0;
+  font-size:16px;
+  color:#7e22ce;
+  font-weight:600;
+  display:flex;
+  justify-content:space-between;
+  cursor:pointer;
+}
+.faq-answer{display:none;padding-bottom:16px;color:#444}
+.faq-item.active .faq-answer{display:block}
+.arrow{transition:.2s}
+.faq-item.active .arrow{transform:rotate(180deg)}
+
+/* FOOTER */
+.footer{
+  background:#111;
+  color:#ccc;
+  margin-top:80px;
+  padding:60px 20px 30px;
+}
+.footer-container{
+  max-width:1200px;
+  margin:0 auto;
+  display:grid;
+  grid-template-columns:2fr 1fr 1fr;
+  gap:40px;
+}
+.footer h3{color:white;margin-bottom:15px}
+.footer p{line-height:1.7;font-size:15px}
+.footer ul{list-style:none}
+.footer ul li{margin-bottom:10px}
+.footer ul li a{
+  color:#ccc;
+  text-decoration:none;
+}
+.footer ul li a:hover{color:#b983ff}
+.footer-bottom{
+  max-width:1200px;
+  margin:40px auto 0;
+  padding-top:20px;
+  border-top:1px solid #333;
+  text-align:center;
+  font-size:14px;
+  color:#888;
+}
+
+/* MODALS */
+.modal {
+  display:none;
+  position:fixed;
+  z-index:1000;
+  left:0;top:0;
+  width:100%;height:100%;
+  overflow:auto;
+  background: rgba(0,0,0,0.6);
+}
+.modal-content {
+  background:white;
+  margin:10% auto;
+  padding:30px;
+  border-radius:20px;
+  max-width:400px;
+  width:90%;
+  box-shadow:0 10px 40px rgba(0,0,0,.3);
+}
+.modal h2{
+  margin-bottom:10px;
+  color:#7e22ce;
+  text-align:center;
+}
+.modal label{
+  display:block;
+  margin:12px 0 4px;
+  font-weight:bold;
+}
+.modal input{
+  width:100%;
+  padding:10px;
+  border-radius:10px;
+  border:1px solid #ccc;
+  margin-bottom:6px;
+}
+.modal button{
+  width:100%;
+  padding:12px;
+  border:none;
+  border-radius:12px;
+  font-weight:bold;
+  cursor:pointer;
+  font-size:16px;
+  background:linear-gradient(90deg,#facc15,#fbbf24);
+}
+.modal .switch{
+  text-align:center;
+  margin-top:10px;
+  cursor:pointer;
+  color:#7e22ce;
+}
+.modal .switch:hover{
+  text-decoration:underline;
+}
+.modal .message{
+  text-align:center;
+  margin-bottom:10px;
+  color:red;
+  font-weight:bold;
+}
+
+/* Responsive */
+@media(max-width:900px){
+  .hero{flex-direction:column;text-align:center}
+  .footer-container{grid-template-columns:1fr;text-align:center}
+  .info-bar{flex-direction:column; gap:10px;}
+}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <a href="index.html">Home</a>
+  <a href="forum.html">Forums</a>
+  <a href="rules.html">Rules</a>
+  <a href="bantable.html">Punishments</a>
+  <a href="staff.html">Staff</a>
+  <div class="header-buttons">
+    <a class="header-btn" onclick="openModal('loginModal')">Log In</a>
+    <a class="header-btn signup" onclick="openModal('signupModal')">Sign Up</a>
+    <a class="store" href="https://zyntrixmc.tebex.io" target="_blank">🛒 STORE</a>
+  </div>
+</div>
+
+<!-- HERO -->
+<div class="hero">
+  <img src="website.png" alt="ZyntrixMC Logo">
+  <div>
+    <small>ZYNTRIXMC NETWORK</small>
+    <h1>Learn how to join our server<br>and start playing in 60 seconds</h1>
+    <a class="btn" href="https://discord.gg/rVDeqwWH" target="_blank">PLAY NOW</a>
+    <div class="info-bar">
+      <div class="info">👥 0 Players</div>
+      <div class="info">🌐 play.zyntrixmc.net</div>
+      <a class="btn-ip" href="https://discord.gg/rVDeqwWH" target="_blank">Join Our Discord</a>
+    </div>
+  </div>
+</div>
+
+
+<!-- JOIN -->
+<div class="join-section">
+  <div class="join-card">
+    <h2>It only takes <b>60 SECONDS</b> to join</h2>
+    <h3>others on ZyntrixMC Network.</h3>
+    <ol>
+      <li>Open <b>Minecraft Java Edition</b> → Multiplayer → Add Server</li>
+      <li>Server Address: <span class="ip">play.zyntrixmc.net</span></li>
+      <li>Register: <code>/register password password</code></li>
+    </ol>
+  </div>
+</div>
+
+<!-- DISCORD -->
+<a class="discord-announce" href="https://discord.gg/rVDeqwWH" target="_blank">
+  Join our Discord for announcements, giveaways, and support!
+</a>
+
+<!-- FAQ -->
+<div class="faq-box">
+  <h2>FAQ</h2>
+
+  <div class="faq-item">
+    <button class="faq-question">
+      What should I do if I forgot my in-game password?
+      <span class="arrow">⌄</span>
+    </button>
+    <div class="faq-answer">
+      Please contact our staff team on Discord to get help resetting your password.
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-question">
+      I have an issue with a recent purchase. Who should I contact?
+      <span class="arrow">⌄</span>
+    </button>
+    <div class="faq-answer">
+      Open a support ticket on our Discord server and provide your purchase details.
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-question">
+      Where can I apply to be a part of the Staff Team?
+      <span class="arrow">⌄</span>
+    </button>
+    <div class="faq-answer">
+      Staff applications are announced and handled through our Discord server.
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-question">
+      I found a player breaking the rules. Where can I report them?
+      <span class="arrow">⌄</span>
+    </button>
+    <div class="faq-answer">
+      Please report rule breakers by opening a ticket on Discord with proof if possible.
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-question">
+      I have recently been muted/banned in-game, can I appeal my punishment?
+      <span class="arrow">⌄</span>
+    </button>
+    <div class="faq-answer">
+      Yes, you can submit a punishment appeal through our Discord support channels.
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-question">
+      Does Fusion Network host in-game events?
+      <span class="arrow">⌄</span>
+    </button>
+    <div class="faq-answer">
+      Yes! We regularly host fun in-game events. Announcements are posted on Discord.
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-question">
+      I have a general concern. Who can I contact?
+      <span class="arrow">⌄</span>
+    </button>
+    <div class="faq-answer">
+      For any general concerns, please reach out to our staff team on Discord.
+    </div>
+  </div>
+</div>
+
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-container">
+    <div>
+      <h3>About Us</h3>
+      <p>The ultimate multiplayer Minecraft experience. Join hundreds of players and build your legacy on ZyntrixMC.</p>
+    </div>
+    <div>
+      <h3>Quick Links</h3>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="https://zyntrixmc.tebex.io" target="_blank">Store</a></li>
+        <li><a href="forum.html">Forums</a></li>
+        <li><a href="rules.html">Rules</a></li>
+        <li><a href="staff.html">Staff</a></li>
+        <li><a href="bantable.html">Punishments</a></li>
+      </ul>
+    </div>
+    <div>
+      <h3>Support</h3>
+      <ul>
+        <li><a href="https://discord.gg/rVDeqwWH" target="_blank">Contact Us</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    © 2025 ZyntrixMC. All rights reserved. Not affiliated with Minecraft or Microsoft.<br>
+    Designed & Developed by <b>TheDarkSky</b>
+  </div>
+</footer>
+
+<!-- LOGIN MODAL -->
+<div id="loginModal" class="modal">
+  <div class="modal-content">
+    <h2>Log In</h2>
+    <p>Log in using your Minecraft username and password.</p>
+    <div class="message" id="login-msg"></div>
+    <label>Minecraft Username</label>
+    <input id="login-user" type="text">
+    <label>Password</label>
+    <input id="login-pass" type="password">
+    <button onclick="login()">Log In</button>
+    <div class="switch" onclick="switchModal('signupModal')">Create an account</div>
+  </div>
+</div>
+
+<!-- SIGNUP MODAL -->
+<div id="signupModal" class="modal">
+  <div class="modal-content">
+    <h2>Sign Up</h2>
+    <p>Create an account to join the ZyntrixMC Network.</p>
+    <div class="message" id="signup-msg"></div>
+    <label>Minecraft Username</label>
+    <input id="signup-user" type="text">
+    <label>Email</label>
+    <input id="signup-email" type="email">
+    <label>Password</label>
+    <input id="signup-pass" type="password">
+    <label>Confirm Password</label>
+    <input id="signup-pass2" type="password">
+    <button onclick="signup()">Sign Up</button>
+    <div class="switch" onclick="switchModal('loginModal')">Already have an account?</div>
+  </div>
+</div>
+
+<script>
+// FAQ toggle
+document.querySelectorAll(".faq-question").forEach(q=>{
+  q.onclick=()=>q.parentElement.classList.toggle("active");
+});
+
+// Modal functions
+function openModal(id){ document.getElementById(id).style.display='block'; }
+function closeModal(id){ document.getElementById(id).style.display='none'; }
+function switchModal(id){
+  document.querySelectorAll('.modal').forEach(m=>m.style.display='none');
+  openModal(id);
+}
+window.onclick = function(e){
+  document.querySelectorAll('.modal').forEach(m=>{
+    if(e.target==m){ m.style.display='none'; }
+  });
+}
+
+// LOCAL STORAGE TO SIMULATE REGISTRATION
+function login(){
+  const user=document.getElementById('login-user').value;
+  const pass=document.getElementById('login-pass').value;
+  const msg=document.getElementById('login-msg');
+  const registered=JSON.parse(localStorage.getItem('users')||'{}');
+
+  if(!user || !pass){ msg.textContent="Fill all fields"; return; }
+  if(!registered[user]){ msg.textContent="Account does not exist. Please sign up first."; return; }
+  if(registered[user].password !== pass){ msg.textContent="Incorrect password"; return; }
+
+  msg.style.color='green';
+  msg.textContent="Logged in successfully as "+user;
+}
+
+function signup(){
+  const user=document.getElementById('signup-user').value;
+  const email=document.getElementById('signup-email').value;
+  const pass=document.getElementById('signup-pass').value;
+  const pass2=document.getElementById('signup-pass2').value;
+  const msg=document.getElementById('signup-msg');
+  let users=JSON.parse(localStorage.getItem('users')||'{}');
+
+  if(!user||!email||!pass||!pass2){ msg.textContent="Fill all fields"; return; }
+  if(pass!==pass2){ msg.textContent="Passwords do not match"; return; }
+  if(users[user]){ msg.textContent="Username already exists"; return; }
+
+  users[user]={email:email,password:pass};
+  localStorage.setItem('users',JSON.stringify(users));
+  msg.style.color='green';
+  msg.textContent="Account created successfully! You can now log in.";
+  setTimeout(()=>switchModal('loginModal'),1500);
+}
+</script>
+
+</body>
+</html>

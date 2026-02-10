@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>ZyntrixMC • Punishments</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:Arial}
+body{background:#6f00ff}
+
+/* HEADER */
+.header{
+  max-width:1200px;margin:20px auto;padding:15px 30px;
+  display:flex;gap:20px;align-items:center
+}
+.header a{font-weight:bold;text-decoration:none;color:#111}
+.header-buttons{margin-left:auto;display:flex;gap:10px}
+.header-btn{background:#7e22ce;color:white;padding:8px 16px;border-radius:12px;font-weight:bold}
+.header-btn.signup{background:#facc15;color:black}
+.store{background:linear-gradient(90deg,#facc15,#fbbf24);padding:10px 20px;border-radius:14px;font-weight:bold}
+
+/* CONTENT */
+.container{
+  max-width:1200px;
+  margin:60px auto;
+  background:white;
+  border-radius:22px;
+  padding:40px;
+  box-shadow:0 20px 50px rgba(0,0,0,.25)
+}
+h1{color:#7e22ce;margin-bottom:10px}
+.subtitle{color:#555;margin-bottom:30px}
+
+/* PUNISHMENT CARDS */
+.rule{
+  display:grid;
+  grid-template-columns:2fr 1fr 1fr;
+  gap:15px;
+  padding:20px;
+  border-radius:16px;
+  background:#f9fafb;
+  margin-bottom:15px;
+  align-items:center;
+}
+.rule strong{font-size:16px}
+.tag{
+  padding:8px 14px;
+  border-radius:999px;
+  font-weight:bold;
+  font-size:14px;
+  text-align:center;
+}
+
+/* TAG COLORS */
+.warn{background:#fde68a;color:#92400e}
+.mute{background:#bfdbfe;color:#1e40af}
+.tempban{background:#fecaca;color:#7f1d1d}
+.permaban{background:#ef4444;color:white}
+
+/* HEADER ROW */
+.rule.header{
+  background:#ede9fe;
+  font-weight:bold;
+}
+
+/* FOOTER */
+.footer{
+  background:#111;
+  color:#ccc;
+  padding:50px 20px 30px;
+  margin-top:80px;
+  text-align:center;
+}
+.watermark{
+  margin-top:20px;
+  font-size:13px;
+  color:#777;
+}
+
+/* MOBILE */
+@media(max-width:800px){
+  .rule{grid-template-columns:1fr}
+}
+</style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+<div class="header">
+  <a href="index.html">Home</a>
+  <a href="forum.html">Forums</a>
+  <a href="rules.html">Rules</a>
+  <a href="bantable.html">Punishments</a>
+  <a href="staff.html">Staff</a>
+  <div class="header-buttons">
+    <a class="header-btn">Log In</a>
+    <a class="header-btn signup">Sign Up</a>
+    <a class="store" href="https://zyntrixmc.tebex.io" target="_blank">🛒 STORE</a>
+  </div>
+</div>
+
+<!-- CONTENT -->
+<div class="container">
+  <h1>Punishment Guidelines</h1>
+  <p class="subtitle">Breaking the rules will result in the following punishments.</p>
+
+  <div class="rule header">
+    <div>Offense</div>
+    <div>First</div>
+    <div>Second</div>
+  </div>
+
+  <div class="rule">
+    <strong>Chat Abuse / Toxicity</strong>
+    <div class="tag mute">Mute 30m</div>
+    <div class="tag mute">Mute 24h</div>
+  </div>
+
+  <div class="rule">
+    <strong>Spam / Flood</strong>
+    <div class="tag warn">Warning</div>
+    <div class="tag mute">Mute 1h</div>
+  </div>
+
+  <div class="rule">
+    <strong>Bug / Exploit Abuse</strong>
+    <div class="tag warn">Warning</div>
+    <div class="tag tempban">Temp Ban</div>
+  </div>
+
+  <div class="rule">
+    <strong>Hacking / Cheating</strong>
+    <div class="tag tempban">7 Day Ban</div>
+    <div class="tag permaban">Permanent</div>
+  </div>
+
+  <div class="rule">
+    <strong>Ban Evasion</strong>
+    <div class="tag permaban">Permanent</div>
+    <div class="tag permaban">Permanent</div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer class="footer">
+  Appeals can be submitted on our Discord.
+  <div class="watermark">
+    © 2025 ZyntrixMC — Designed & Developed by <b>TheDarkSky</b>
+  </div>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>ZyntrixMC Staff</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/png" href="favicon.png">
+<style>
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #111;
+    color: white;
+}
+header {
+    background: rgba(0,0,0,0.7);
+    backdrop-filter: blur(10px);
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    position: sticky;
+    top: 0;
+    z-index: 999;
+}
+header a {
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
+    transition: .2s;
+}
+header a:hover { color: #a855f7; }
+.store {
+    margin-left: auto;
+    background: #a855f7;
+    padding: 8px 20px;
+    border-radius: 12px;
+    font-weight: bold;
+    transition: .2s;
+}
+.store:hover { background: #9333ea; transform: scale(1.05); }
+
+.staff-container {
+    max-width: 1000px;
+    margin: 50px auto;
+    padding: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+.staff-card {
+    background: rgba(30,30,40,0.8);
+    padding: 20px;
+    border-radius: 16px;
+    text-align: center;
+    width: 220px;
+}
+.staff-card img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+    object-fit: cover;
+}
+.staff-card h3 {
+    margin: 10px 0 5px;
+    color: #e90000;
+}
+.staff-card p { margin: 0; font-size: 14px; }
+.owner, .admin { color: rgb(255, 0, 0); font-weight: bold; }
+.developer { color: rgb(27, 113, 134); font-weight: bold; }
+
+@media(max-width:600px){
+    .staff-card { width: 100%; }
+}
+</style>
+</head>
+<body>
+
+<header>
+  <a href="index.html">Home</a>
+  <a href="forum.html">Forum</a>
+  <a href="rules.html">Rules</a>
+  <a href="staff.html">Staff</a>
+  <a class="store" href="https://zyntrixmc.tebex.io" target="_blank">🛒 STORE</a>
+</header>
+
+<div class="staff-container">
+
+  <div class="staff-card">
+    <img src="https://cdn.discordapp.com/attachments/1462493741209227529/1469628816195452938/TheDarkSky.png?ex=698859fe&is=6987087e&hm=75fda386abc8d1a85280e1bbf29a291f0df4864810cae4219c679c0178eff1c9&">
+    <h3>TheDarkSky</h3>
+    <p class="owner">Owner</p>
+    <p>Discord: BlutStiche</p>
+  </div>
+
+  <div class="staff-card">
+    <img src="https://minotar.net/helm/tanqoo/600.png" alt="Staff Avatar">
+    <h3>Leona</h3>
+    <p class="admin">Network Administrator</p>
+    <p>Discord: _xleonaz_</p>
+  </div>
+
+  <div class="staff-card">
+    <img src="https://cdn.discordapp.com/attachments/1462493741209227529/1469628815709048873/ItsJester.png?ex=698859fe&is=6987087e&hm=e29656f80032d18b44d391a44e46aedeb084790225d22d47fac3ca4f4dd6ee3c&" alt="Staff Avatar">
+    <h3>ItsJester</h3>
+    <p class="admin">Admin</p>
+    <p>Discord: itsjester.</p>
+  </div>
+
+  <div class="staff-card">
+    <img src="https://cdn.discordapp.com/attachments/1462493741209227529/1469236219627175969/TimCodeDE.png?ex=6986ec5b&is=69859adb&hm=5f541230bf43c61d8f3a72cd97d66ab3f9e45b46755be1f488e18e84826130bf&" alt="Staff Avatar">
+    <h3>TimCodeDE</h3>
+    <p class="developer">Developer</p>
+    <p>Discord: TimxCode</p>
+  </div>
+
+</div>
+
+</body>
+</html>
